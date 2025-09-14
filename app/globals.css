@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@layer components {
+  .footer_link {
+    @apply text-gray-600 text-sm cursor-pointer w-fit hover:text-sky-700 dark:text-gray-300 dark:hover:text-sky-400;
+  }
+}
+
+
+@custom-variant dark (&:where(.dark, .dark *))  /* remove this line */
