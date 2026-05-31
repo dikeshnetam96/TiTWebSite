@@ -7,13 +7,37 @@ import Footer from "@/components/Home/Footer/Footer";
 import ScrollToTop from "@/components/Helper/ScrollToTop";
 
 const font = Roboto({
-  weight:['100','200','300','400','500','600','700','800','900'],
-  subsets:['latin']
-})
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: "Job Portal | Landing Page",
-  description: "Job Portal Landing page using next js 15",
+  title: {
+    default: "TiT Pvt. Ltd. | Product and IT Solutions",
+    template: "%s | TiT Pvt. Ltd.",
+  },
+  description:
+    "TiT Pvt. Ltd. delivers product engineering, data engineering, cloud, and AI/ML solutions for modern businesses.",
+  keywords: [
+    "product engineering",
+    "data engineering",
+    "cloud solutions",
+    "AI ML services",
+    "IT consulting",
+    "TiT Pvt. Ltd.",
+  ],
+  openGraph: {
+    title: "TiT Pvt. Ltd. | Product and IT Solutions",
+    description:
+      "Build scalable digital products with TiT's engineering, cloud, and AI/ML expertise.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TiT Pvt. Ltd. | Product and IT Solutions",
+    description:
+      "Build scalable digital products with TiT's engineering, cloud, and AI/ML expertise.",
+  },
 };
 
 export default function RootLayout({
@@ -22,11 +46,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // app/layout.tsx
-<html lang="en" suppressHydrationWarning>
-      <body
-        className={`${font.className} antialiased`}>
-          <Provider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${font.className} antialiased`}>
+        <Provider>
           <ResponsiveNav />
           {children}
           <Footer />
@@ -36,3 +58,4 @@ export default function RootLayout({
     </html>
   );
 }
+

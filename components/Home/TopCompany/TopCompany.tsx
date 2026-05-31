@@ -27,7 +27,7 @@ const CompanyData = [
     {
         id:1,
         image:"/image/c1.png",
-        name:"udemy",
+        name:"Udemy",
         location:"London, UK",
         position:"20",
     },
@@ -42,7 +42,7 @@ const CompanyData = [
         id:3,
         image:"/image/c3.png",
         name:"Dropbox",
-        location:"Lahor, Pakistan",
+        location:"Lahore, Pakistan",
         position:"30",
     },
     {
@@ -57,7 +57,7 @@ const CompanyData = [
 const TopCompany = () => {
   return (
   <div className="pt-16 pb-16">
-    <SectionHeading heading="Top Company Registered" subHeading="Some of the companies we've helped recruit excellent applicants over the years" />
+    <SectionHeading heading="Featured Companies" subHeading="Organizations we have supported with strong engineering and hiring outcomes" />
     <div className="w-[80%] mx-auto mt-16">
         <Carousel
   showDots={false}

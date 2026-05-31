@@ -1,10 +1,69 @@
 @import "tailwindcss";
 
-@layer components {
-  .footer_link {
-    @apply text-gray-600 text-sm cursor-pointer w-fit hover:text-sky-700 dark:text-gray-300 dark:hover:text-sky-400;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --brand-600: #0f4c81;
+    --brand-700: #0b3a63;
+    --brand-50: #eaf2fb;
+    --brand-ring: rgba(15, 76, 129, 0.35);
+  }
+
+  .dark {
+    --brand-600: #7bb5ee;
+    --brand-700: #9cc7f1;
+    --brand-50: rgba(123, 181, 238, 0.2);
+    --brand-ring: rgba(156, 199, 241, 0.45);
+  }
+
+  body {
+    @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100;
   }
 }
 
+@layer components {
+  .btn-primary {
+    background-color: var(--brand-600);
+    color: #ffffff;
+  }
 
-@custom-variant dark (&:where(.dark, .dark *))  /* remove this line */
+  .btn-primary:hover {
+    background-color: var(--brand-700);
+  }
+
+  .btn-primary:focus-visible {
+    outline: 2px solid var(--brand-ring);
+    outline-offset: 2px;
+  }
+
+  .btn-secondary-brand {
+    border: 1px solid color-mix(in srgb, var(--brand-600) 45%, transparent);
+    color: var(--brand-600);
+  }
+
+  .btn-secondary-brand:hover {
+    background-color: var(--brand-50);
+  }
+
+  .brand-text {
+    color: var(--brand-600);
+  }
+
+  .brand-link:hover {
+    color: var(--brand-600);
+  }
+
+  .brand-icon-surface {
+    background-color: var(--brand-50);
+    color: var(--brand-600);
+  }
+
+  .footer_link {
+    @apply text-gray-600 text-sm cursor-pointer w-fit dark:text-gray-300;
+  }
+
+  .footer_link:hover {
+    color: var(--brand-600);
+  }
+}

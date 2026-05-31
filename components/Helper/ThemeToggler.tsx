@@ -16,9 +16,9 @@ const ThemeToggler = () => {
 
     const currentTheme = theme==='system'?systemTheme:theme;
 
-  return <button onClick={()=> setTheme(currentTheme === "dark"?"light":"dark")} className="p-2 transition w-10 h-10 bg-blue-950 dark:bg-white rounded-full flex flex-col items-center justify-center">
-    {currentTheme==="dark"?<BiSun className="text-white dark:text-black w-7 h-7 cursor-pointer" />: 
-    <BiMoon className="text-white dark:text-black w-7 h-7 cursor-pointer"/>}
+  return <button onClick={()=> setTheme(currentTheme === "dark"?"light":"dark")} className="p-2 transition w-10 h-10 rounded-full flex flex-col items-center justify-center bg-gray-900 dark:bg-gray-100 border border-gray-700 dark:border-gray-300 hover:border-[var(--brand-600)]">
+    {currentTheme==="dark"?<BiSun className="text-gray-900 dark:text-gray-900 w-7 h-7 cursor-pointer" />:
+    <BiMoon className="text-white dark:text-gray-900 w-7 h-7 cursor-pointer"/>}
   </button>
 }
 

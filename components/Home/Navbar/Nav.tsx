@@ -96,7 +96,7 @@ const Nav = ({ openNav }: Props) => {
 
   return (
     <div
-      className={`transition-all ${navBg ? 'bg-white dark:bg-gray-900 shadow-md' : 'fixed'
+      className={`transition-all ${navBg ? 'bg-white/95 dark:bg-gray-950/95 shadow-md backdrop-blur border-b border-gray-200/70 dark:border-gray-800/80' : 'fixed'
         } duration-200 h-[12vh] z-[10000] fixed w-full`}
     >
       <div className="flex items-center h-full justify-between w-[92%] mx-auto">
@@ -131,7 +131,7 @@ const Nav = ({ openNav }: Props) => {
               <Link
                 key={link.id}
                 href={link.url}
-                className="text-base hover:text-cyan-700 dark:hover:text-cyan-200 font-medium transition-all duration-200"
+                className="text-base brand-link font-medium transition-all duration-200"
               >
                 {link.Label}
               </Link>
@@ -149,9 +149,7 @@ const Nav = ({ openNav }: Props) => {
           {/* Job Post */}
           <Link
             href="/connect"
-            className="px-8 py-2.5 text-sm hidden sm:inline-flex items-center justify-center
-             cursor-pointer rounded-lg bg-cyan-700 hover:bg-cyan-900
-             transition-all duration-300 text-white"
+            className="px-8 py-2.5 text-sm hidden sm:inline-flex items-center justify-center cursor-pointer rounded-lg transition-all duration-300 btn-primary"
           >
             Contact Us
           </Link>
