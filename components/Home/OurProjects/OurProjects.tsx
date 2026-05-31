@@ -222,7 +222,7 @@ const OurProjects: React.FC = () => {
           Our Projects */}
         {/* </span> */}
 
-        <div data-reveal className="opacity-0 translate-y-4 text-white">
+        <div className="text-white">
           <div className="text-white">
             <SectionHeading
               heading="Results-driven builds for modern teams"

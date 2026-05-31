@@ -14,6 +14,7 @@ export default function ScrollThemeUntilLastTop({
     children,
 }: Props) {
     const [mode, setMode] = useState<'dark' | 'light'>('dark');
+    const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
         const onScroll = () => {
@@ -22,6 +23,11 @@ export default function ScrollThemeUntilLastTop({
             const top = sentinel.getBoundingClientRect().top;
             // black until last section's TOP reaches viewport TOP
             setMode(top <= 0 ? 'light' : 'dark');
+
+            // Calculate scroll progress for additional effects
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = maxScroll > 0 ? Math.min(window.scrollY / maxScroll, 1) : 0;
+            setScrollProgress(progress);
         };
 
         onScroll();
@@ -36,11 +42,16 @@ export default function ScrollThemeUntilLastTop({
     return (
         <div
             className={[
-                'min-h-screen transition-colors duration-700 ease-out',
-                mode === 'dark' ? 'bg-black text-white' : 'bg-white text-black',
+                'min-h-screen transition-all duration-1000 ease-out',
+                mode === 'dark' ? 'bg-gradient-to-b from-black via-gray-950 to-black text-white' : 'bg-gradient-to-b from-white via-gray-50 to-white text-black',
             ].join(' ')}
+            style={{
+                opacity: 0.98 + scrollProgress * 0.02,
+            }}
         >
-            {children}
+            <div className="relative z-10">
+                {children}
+            </div>
         </div>
     );
 }
