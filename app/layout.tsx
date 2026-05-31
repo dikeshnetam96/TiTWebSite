@@ -47,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${font.className} antialiased`}>
+      <body className={`${font.className} antialiased`} suppressHydrationWarning>
         <Provider>
           <ResponsiveNav />
           {children}
