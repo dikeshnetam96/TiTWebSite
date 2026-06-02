@@ -82,7 +82,12 @@ type Props = {
 
 const Nav = ({ openNav }: Props) => {
   const [navBg, setNavBg] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { theme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handler = () => {
@@ -103,26 +108,15 @@ const Nav = ({ openNav }: Props) => {
         {/* Left section: Logo + Links */}
         <div className="flex items-center">
           {/* Logo */}
-          <div className="w-36 h-auto flex items-center justify-center">
-            {theme === 'dark' ? (
-              <Image
-                src="/image/titlogodark.png" // dark mode logo
-                alt="TIT Logo Dark"
-                width={80}
-                height={80}
-                className="object-contain"
-                priority
-              />
-            ) : (
-              <Image
-                src="/image/titlogo.png" // light mode logo
-                alt="TIT Logo Light"
-                width={80}
-                height={80}
-                className="object-contain"
-                priority
-              />
-            )}
+          <div className="w-36 h-auto flex items-center justify-center" suppressHydrationWarning>
+            <Image
+              src={mounted && theme === 'dark' ? '/image/titlogodark.png' : '/image/titlogo.png'}
+              alt="TIT Logo"
+              width={80}
+              height={80}
+              className="object-contain"
+              priority
+            />
           </div>
 
           {/* Nav Links */}
@@ -146,10 +140,10 @@ const Nav = ({ openNav }: Props) => {
             Login / Register
           </button> */}
 
-          {/* Job Post */}
+          {/* Contact Us */}
           <Link
             href="/connect"
-            className="px-8 py-2.5 text-sm hidden sm:inline-flex items-center justify-center cursor-pointer rounded-lg transition-all duration-300 btn-primary"
+            className="px-8 py-2.5 text-sm hidden sm:inline-flex items-center justify-center cursor-pointer rounded-lg transition-all duration-300 btn-dark-section"
           >
             Contact Us
           </Link>

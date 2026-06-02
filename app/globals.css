@@ -42,6 +42,22 @@
     outline-offset: 2px;
   }
 
+  /* Dark section buttons - always consistent regardless of theme */
+  .btn-dark-section {
+    background-color: #0f4c81;
+    color: #ffffff;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-dark-section:hover {
+    background-color: #0b3a63;
+  }
+
+  .btn-dark-section:focus-visible {
+    outline: 2px solid rgba(15, 76, 129, 0.35);
+    outline-offset: 2px;
+  }
+
   .btn-secondary-brand {
     border: 1px solid color-mix(in srgb, var(--brand-600) 45%, transparent);
     color: var(--brand-600);
@@ -87,5 +103,45 @@
 
   .backdrop-smooth {
     @apply backdrop-blur-md transition-all duration-500 ease-out;
+  }
+
+  /* Section decorative patterns */
+  .section-decor {
+    position: relative;
+    overflow: visible;
+  }
+
+  .pattern-dot-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.18;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  .pattern-blob {
+    position: absolute;
+    width: 48vmax;
+    height: 48vmax;
+    filter: blur(60px);
+    opacity: 0.08;
+    pointer-events: none;
+    transform: translate(-20%, -20%);
+  }
+
+  .pattern-blob--left { background: radial-gradient(circle at 20% 30%, var(--brand-600), transparent 40%); left: -10%; top: -20%; }
+  .pattern-blob--right { background: radial-gradient(circle at 80% 70%, var(--brand-700), transparent 40%); right: -10%; bottom: -20%; }
+
+  .pattern-wave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 160px;
+    bottom: -40px;
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.08));
+    pointer-events: none;
+    opacity: 0.6;
   }
 }

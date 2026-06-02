@@ -267,7 +267,7 @@ const OurProjects: React.FC = () => {
                     <div className="mt-5">
                       <button
                         aria-label={`Explore ${title}`}
-                        className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium btn-primary transition-colors"
+                        className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium btn-dark-section transition-colors"
                       >
                         Explore <FiArrowUpRight className="h-4 w-4" />
                       </button>

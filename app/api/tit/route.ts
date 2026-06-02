@@ -31,8 +31,10 @@
 
 
 import { NextResponse } from 'next/server';
+import connectionToDataBase from '@/lib/mongoose';
+import Contact from '@/models/Contact';
 
-export const runtime = 'nodejs'; // ensure Node runtime on platforms that support it
+export const runtime = 'nodejs';
 
 type ContactPayload = {
     name: string;
@@ -51,14 +53,35 @@ export async function POST(req: Request) {
             );
         }
 
-        // Do your processing here (email, DB, etc.)
-        console.log('CONTACT:', body);
+        // Connect to database
+        await connectionToDataBase();
+
+        // Create new contact document
+        const newContact = new Contact({
+            name: body.name.trim(),
+            email: body.email.trim().toLowerCase(),
+            query: body.query.trim(),
+            status: 'new',
+        });
+
+        // Save to MongoDB
+        await newContact.save();
+
+        console.log('CONTACT SAVED:', newContact);
 
         return NextResponse.json({
             ok: true,
-            message: 'Thanks! We received your message.',
+            message: 'Thanks! We received your message. We\'ll get back to you soon.',
+            data: {
+                id: newContact._id,
+                email: newContact.email,
+            },
         });
-    } catch {
-        return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+    } catch (error) {
+        console.error('Error saving contact:', error);
+        return NextResponse.json(
+            { error: 'Failed to save your message. Please try again.' },
+            { status: 500 }
+        );
     }
 }

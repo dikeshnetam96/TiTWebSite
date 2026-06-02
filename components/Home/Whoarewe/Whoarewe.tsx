@@ -3,11 +3,14 @@ import React from 'react';
 
 const WhoAreWe = () => {
   return (
-    <div className="pt-16 pb-16 ">
-      <div className="w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+    <div className="pt-16 pb-16 section-decor">
+      <div className="pointer-events-none pattern-dot-grid" />
+      <div className="pointer-events-none pattern-blob pattern-blob--left" />
+      <div className="pointer-events-none pattern-blob pattern-blob--right" />
+      <div className="w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10">
         {/** Image Content */}
         <div data-aos="fade-right" data-aos-anchor-placement="top-center">
-          <Image src="/image/whoweare.png" alt="img" width={1000} height={1000} />
+          <Image src="/image/whoweare.png" alt="Who we are" width={1000} height={1000} />
           {/* <Image src="/image/a.png" alt = "img" width={1000} height={1000} /> */}
         </div>
         {/** Text Content */}

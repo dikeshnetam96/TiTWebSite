@@ -6,6 +6,7 @@ import Provider from "@/components/Hoc/Provider";
 import Footer from "@/components/Home/Footer/Footer";
 import ScrollToTop from "@/components/Helper/ScrollToTop";
 import ScrollBackgroundEnhancer from "@/components/ScrollBackgroundEnhancer";
+import ScrollColorAnimator from "@/components/ScrollColorAnimator";
 
 const font = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -50,6 +51,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${font.className} antialiased`} suppressHydrationWarning>
         <ScrollBackgroundEnhancer />
+        <ScrollColorAnimator />
         <Provider>
           <ResponsiveNav />
           {children}

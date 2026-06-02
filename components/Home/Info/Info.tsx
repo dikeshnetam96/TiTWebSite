@@ -5,11 +5,13 @@ import { BiCheck } from 'react-icons/bi';
 
 const Info = () => {
     return (
-        <div className="pt-16 pb-16 ">
-            <div className="w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div className="pt-16 pb-16 section-decor">
+                <div className="pointer-events-none pattern-dot-grid" />
+                <div className="pointer-events-none pattern-blob pattern-blob--right" />
+                <div className="w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10">
                 {/** Image Content */}
                 <div data-aos="fade-right" data-aos-anchor-placement="top-center">
-                    <Image src="/image/technical.png" alt="Team discussing technical architecture" width={1000} height={1000} />
+                    <Image src="/image/technical.png" alt="Technical approach and capabilities" width={1000} height={1000} />
                 </div>
                 {/** Text Content */}
                 <div data-aos="fade-left" data-aos-anchor-placement="top-center" data-aos-delay={150}>
@@ -38,7 +40,7 @@ const Info = () => {
                         </div>
                     </div>
                     <div className="mt-8">
-                        <Link href="/connect" className="inline-block px-10 py-3 rounded-lg text-white text-center cursor-pointer transition-all duration-300 btn-primary">
+                        <Link href="/connect" className="inline-block px-10 py-3 rounded-lg text-white text-center cursor-pointer transition-all duration-300 btn-dark-section">
                             Book a consultation
                         </Link>
                     </div>
